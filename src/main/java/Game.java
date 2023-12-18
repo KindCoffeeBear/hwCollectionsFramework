@@ -1,27 +1,28 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Game {
-    ArrayList<Player> players = new ArrayList<>(); // зарегистрированные игроки
+    HashMap<String, Player> players = new HashMap<>(); // зарегистрированные игроки
 
     /**
      * Метод регистрации игрока в турнире
      *
      * @param player Добавляемый игрок
      */
-    public void register(Player player) {
-        players.add(player);
+    public void register(String key, Player player) {
+        players.put(key, player);
     }
 
     public int round(String playerName1, String playerName2) {
         Player player1 = new Player();
         Player player2 = new Player();
 
-        for (Player player : players) {
-            if (player.getName().equals(playerName1)) {
-                player1 = player;
-            } else if (player.getName().equals(playerName2)) {
-                player2 = player;
+        for (String key : players.keySet()) {
+            if (players.get(key).getName().equals(playerName1)) {
+                player1 = players.get(key);
+            } else if (players.get(key).getName().equals(playerName2)) {
+                player2 = players.get(key);
             }
         }
 

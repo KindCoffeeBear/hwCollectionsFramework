@@ -10,10 +10,10 @@ public class GameTest {
 
     @Test
     public void testRound() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
+        game.register("Игрок 1", player1);
+        game.register("Игрок 2", player2);
+        game.register("Игрок 3", player3);
+        game.register("Игрок 4", player4);
 
         int expected1 = 1;
         int actual1 = game.round("Ваня", "Женя");
@@ -31,9 +31,9 @@ public class GameTest {
 
     @Test
     public void testNotRegisteredException() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
+        game.register("Игрок 1", player1);
+        game.register("Игрок 2", player2);
+        game.register("Игрок 3", player3);
 
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Ваня", "Костя");
